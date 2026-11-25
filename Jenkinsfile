@@ -16,9 +16,19 @@ pipeline {
             }
         }
 
-        stage('Project Build') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Project files are available.'
+                dir('video_rag_processor') {
+                    bat '"C:\\Users\\aasth\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip install opencv-python numpy Pillow ImageHash'
+                }
+            }
+        }
+
+        stage('Run Automated Tests') {
+            steps {
+                dir('video_rag_processor') {
+                    bat '"C:\\Users\\aasth\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m unittest tests.test_video_processor -v'
+                }
             }
         }
 
