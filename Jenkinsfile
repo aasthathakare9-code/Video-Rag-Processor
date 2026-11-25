@@ -11,8 +11,8 @@ pipeline {
 
         stage('Environment Check') {
             steps {
-                bat 'python --version'
-                bat 'pip --version'
+                bat '"C:\\Users\\aasth\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" --version'
+                bat '"C:\\Users\\aasth\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pip --version'
             }
         }
 
